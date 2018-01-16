@@ -162,7 +162,7 @@ def susanEdge(image, radius=3.4, fptype=bool, t=25, gfrac=None, cgthresh=None,
         specifically, default is gfrac=0.75) as recommended by
         reference article authors.
 
-    cgthesh: scaler, optional
+    cgthresh: scalar, optional
 
         Threshold value of USAN center of gravity, in units of pixels,
         which will lead to a shift between one underlying set of
@@ -293,7 +293,7 @@ def susanCorner(image, radius=3.4, fptype=bool, t=25, gfrac=None,
         specifically, default is gfrac=0.5) as recommended by
         reference article authors.
 
-    cgthesh: scaler, optional
+    cgthresh: scalar, optional
 
         Threshold value of USAN center of gravity, in units of pixels,
         which will lead to a shift between one underlying set of
