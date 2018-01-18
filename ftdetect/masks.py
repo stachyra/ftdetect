@@ -447,7 +447,7 @@ def usan(image, mode='Edge', radius=3.4, fptype=bool, t=25, gfrac=None,
         # Total number of pixels in mask
         ntot = len(maskout) - 1
         # Index and intensity of center pixel (i.e., the nucleus)
-        ctridx = ntot/2
+        ctridx = ntot//2
         nucleus = maskout[ctridx]
         # Delete data of center pixel in family of arrays with same dimension
         maskout = np.delete(maskout, ctridx)
