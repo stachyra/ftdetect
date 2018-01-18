@@ -10,15 +10,14 @@ readme = os.path.join(os.path.dirname(__file__), 'ftdetect', 'README.rst')
 
 setup(
     name='ftdetect',
-    version='1.0.0',
+    version='1.0.1',
     author='Andrew L. Stachyra',
     author_email='andrewlstachyra@gmail.com',
     description=shortdesc,
     long_description=open(readme).read(),
     packages=['ftdetect'],
     package_dir={'ftdetect': 'ftdetect'},
-    package_data={'ftdetect': ['images\\blocksTest.gif',
-                               'images\\house.png',
+    package_data={'ftdetect': [os.path.join('images', 'blocksTest.gif'),
+                               os.path.join('images', 'house.png'),
                                'README.rst']}
     )
-    

@@ -114,10 +114,12 @@ References
 Package Maintenance Information
 -------------------------------
 
-*Version*: 1.0.0
+*Version*: 1.0.1
 
-*Date*: 2013-05-17
+*Date*: 2018-01-18
+
+*URL*: https://github.com/stachyra/ftdetect
 
 *Author*: Andrew L. Stachyra
 
-*Contact*: andrewlstachyra@gmail.com 
+*Contact*: andrewlstachyra@gmail.com
