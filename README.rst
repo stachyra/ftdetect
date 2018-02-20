@@ -11,11 +11,26 @@ This package implements a small assortment of (currently, three) algorithms rela
     - SUSAN_ edge detection [SB1995]_ [SB1997]_
     - SUSAN_ corner detection [SB1995]_ [SB1997]_
 
-The code has been developed and tested using the EPD free Python 2.7.3 distribution (now offered as `Enthought Canopy Express`_).
+The code was originally developed using the EPD free Python 2.7.3 distribution (now offered as `Enthought Canopy Express`_) and has most recently been tested on Python 2.7.10 and 3.6.4.
       
 .. _Wang-Brady: http://en.wikipedia.org/wiki/Corner_detection#The_Wang_and_Brady_corner_detection_algorithm
 .. _SUSAN: http://en.wikipedia.org/wiki/Corner_detection#The_SUSAN_corner_detector
 .. _Enthought Canopy Express:  https://www.enthought.com/downloads/
+
+Screen Shots
+------------
+
+Typical output of the three algorithms looks like this:
+
+Blocks
+^^^^^^
+
+.. image:: screenshots/blocksTest_screenshot.png
+
+House
+^^^^^
+
+.. image:: screenshots/house_screenshot.png
 
 Package Contents
 ----------------
@@ -58,34 +73,40 @@ The package is organized into four modules, briefly described below:
 
         **.demo()** Runs the algorithms in the features module on a couple of standard test images (or user-supplied image files, if desired) using default parameter settings
 
-External Requirements
----------------------
+Dependencies
+------------
 
-In addition to the Python interpreter and its constituent libraries, four external packages, which are not necessarily included in the Python standard libraries, are also required in order to use this package:
+There are four external dependencies, all of which are very popular and widely used, and may be expected to install with no issues on practically any OS:
 
     - numpy_
     - scipy_
-    - matplotlib_ (necessary for demo script only)
-    - PIL_ (necessary for demo script only)
-
-At least some of these packages, such as numpy and scipy, include portions which are not native Python and therefore have to be compiled, meaning that your system must have compilers installed in order to run them.  A popular and somewhat easier alternative is to download `Enthought Canopy Express`_ (formerly EPD Free), the free version of a Python-based GUI scientific analysis environment which also includes a Python distribution containing precompiled versions of all of the packages above.  As of this writing, a version of the PIL package does not yet exist for Python 3.x, which effectively means that both the Enthought Python Distribution is currently limited to Python 2.7.3, and also that this package has not yet been tested on versions of Python that are later than this, either.
+    - matplotlib_ (needed for demo script only)
+    - Pillow_ (needed for demo script only)
 
 .. _numpy:                     http://www.numpy.org/
 .. _scipy:                     http://www.scipy.org/
 .. _matplotlib:                http://matplotlib.org/
-.. _PIL:                       http://www.pythonware.com/products/pil/
+.. _Pillow:                    http://pillow.readthedocs.io/
 
 Install
 -------
 
-The ftdetect package is distributed using standard Python distutils.  After downloading and unzipping the package, open a command line shell, change directory to the package folder that contains setup.py, and simply type::
+The recommended way to the install the ftdetect package is from a `universal wheel`_, using pip::
+
+    pip install ftdetect
+
+.. _universal wheel:           https://packaging.python.org/tutorials/distributing-packages/#universal-wheels
+
+If desired, the ftdetect package can also support distribution via Python's older legacy distribution system, setuptools_.  After downloading and unzipping the package, open a command line shell, change directory to the package folder that contains setup.py, and simply type::
 
     python setup.py install
-    
+
+.. _setuptools:                https://setuptools.readthedocs.io/en/latest/
+
 Example
 -------
 
-A demo script has been provided, with a couple of standard test images, to help illustrate usage.  To run it from the command line, type::
+A demo script has been provided in order to illustrate usage.  It reproduces the screen shots shown above.  To run it from the command line, type::
 
     python -c "import ftdetect.example; ftdetect.example.demo()"
 
@@ -98,7 +119,7 @@ The demo script is also capable of running on user-selected figures, like so::
 
     ftdetect.example.demo(['filea.jpg', 'fileb.gif', 'filec.png'])
 
-however, execution speed may vary widely.  The SUSAN algorithms in particular are prone to running very slowly on some images, particularly those with large dimensions, textured surfaces, or complicated fine structure.  If that happens, choose another image which is both smaller and doesn't contain as much fine detail.  Another more advanced option is to vary the algorithm input parameters so as to decrease the sensitivity, however, the code provided in the example module, being conceived primarily as instructional in nature, doesn't bother to expose this level of control to the end-user--you'll have to access the algorithms directly from the features module itself in that case. 
+however, execution speed may vary widely.  The SUSAN algorithms in particular are prone to running very slowly on some images, particularly those with large dimensions, textured surfaces, or complicated fine structure.  If that happens, choose another image which is both smaller and doesn't contain as much fine detail.  Another more advanced option is to vary the algorithm input parameters so as to decrease the sensitivity.  However, the code in the example module is intended to be introductory, and therefore it simply accepts the default input settings for all algorithms.  If you want to modify the defaults, drill down further into the ``features`` module and read the docstrings, in order to understand what the parameters mean. 
 
 References
 ----------
